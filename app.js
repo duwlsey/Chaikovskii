@@ -24,7 +24,7 @@
   const notify=(message)=>{ $('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),6000); };
   tracks.forEach((t,i)=>{
     const el=document.createElement('article');el.className='card';el.style.setProperty('--art-bg',t.color);
-    el.innerHTML=`<div class="art"><img src="assets/${t.id}.svg" alt="${t.title}를 표현한 삽화" loading="lazy"><span class="track-num">${String(i+1).padStart(2,'0')}</span><span class="selected-tag" hidden>✓ 선택됨</span></div><div class="card-body"><p class="track-en">${t.en}</p><h3>${t.title}</h3><p class="track-meta"><span>${time(t.limit)}</span><i class="meta-dot"></i><span>${t.duration>210?'3분 감상':'전곡 감상'}</span></p><div class="card-controls"><button class="play-button" data-audio-control aria-label="${t.title} 재생" aria-pressed="false"><span class="play-icon">▶</span><span class="play-label">재생</span></button><button class="choose-button" aria-label="${t.title} 선택" disabled>선택하기</button></div><div class="seek-row" data-audio-control><span class="elapsed">0:00</span><input type="range" min="0" max="${t.limit}" value="0" step="1" aria-label="${t.title} 재생 위치"><span>${time(t.limit)}</span></div></div>`;
+    el.innerHTML=`<div class="art"><img src="assets/${t.id}.svg" alt="${t.title} 관련 삽화" loading="lazy"><span class="track-num">${String(i+1).padStart(2,'0')}</span><span class="selected-tag" hidden>✓ 선택됨</span></div><div class="card-body"><p class="track-en">${t.en}</p><h3>${t.title}</h3><p class="track-meta"><span>${time(t.limit)}</span><i class="meta-dot"></i><span>${t.duration>210?'3분 감상':'전곡 감상'}</span></p><div class="card-controls"><button class="play-button" data-audio-control aria-label="${t.title} 재생" aria-pressed="false"><span class="play-icon">▶</span><span class="play-label">재생</span></button><button class="choose-button" aria-label="${t.title} 선택" disabled>선택하기</button></div><div class="seek-row" data-audio-control><span class="elapsed">0:00</span><input type="range" min="0" max="${t.limit}" value="0" step="1" aria-label="${t.title} 재생 위치"><span>${time(t.limit)}</span></div></div>`;
     cards.set(t.id,el);$('#cards').append(el);
     el.querySelector('.play-button').addEventListener('click',()=>toggle(t));
     el.querySelector('.choose-button').addEventListener('click',()=>openChoice(t));
@@ -56,3 +56,4 @@
   window.addEventListener('online',sync);window.addEventListener('offline',()=>{lastSync=0;render();});
   render();sync();
 })();
+

@@ -38,7 +38,11 @@ window.CLASS_CONFIG = Object.freeze({
 
 저장소: https://github.com/duwlsey/Chaikovskii
 
-**권장: 브랜치에서 바로 배포**
+이 저장소는 **GitHub Actions 자동 배포**로 설정되어 있습니다. `main`에 파일을 저장하면 페이지가 갱신됩니다. 기본 주소는 **https://duwlsey.github.io/Chaikovskii/** 입니다. 최초 배포와 파일 수정 반영에 잠시 시간이 걸릴 수 있습니다.
+
+다른 저장소에 사본을 만들었거나 수동 설정이 필요하면 **Settings → Pages → Source: GitHub Actions**를 선택하고 Actions 탭에서 **Publish music classroom → Run workflow**를 실행하세요.
+
+**대안: 브랜치에서 바로 배포**
 
 1. 저장소 **Settings → Pages**를 엽니다.
 2. Source를 **Deploy from a branch**로 선택합니다.
